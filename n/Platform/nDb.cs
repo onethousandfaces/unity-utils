@@ -19,6 +19,9 @@ namespace n.Platform
     /** Delete an existing db record */
     bool Delete(nDbRecord record);
     
+    /** Return a count of records */
+    int Count<T>() where T : nDbRecord;
+    
     /** Get a specific db record */
     T Get<T>(long id) where T : nDbRecord;
     
