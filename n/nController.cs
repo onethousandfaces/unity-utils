@@ -29,7 +29,7 @@ namespace n
 		}
 
 		/** Return a view with only a model */
-		protected nView View (object model)
+		protected nView View (nModel model)
 		{
 			var rtn = _factory.View(model, _context);
 			return rtn;
@@ -38,8 +38,7 @@ namespace n
 		/** Return a view to navigate to the given type */
 		protected nView View (string target)
 		{
-			var t = _stateFactory.View(target);
-			var rtn = _factory.View(t, _context);
+			var rtn = _factory.View(target, _context);
 			return rtn;
 		}
     

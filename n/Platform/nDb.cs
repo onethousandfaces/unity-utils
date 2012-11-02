@@ -1,11 +1,32 @@
 using System;
+using n.App;
+using System.Collections.Generic;
 
 namespace n.Platform
 {
-	/** The platform bindings should implement this to provide data connectivity */
+	/** Platform bindings for basic persistence operations */
 	public interface nDb
 	{
-		T Connection<T>();	
+    /** Setup the database to accept records of a particular */
+    bool Setup<T>() where T : nDbRecord;
+    
+    /** Save a new db record */
+    bool Insert(nDbRecord record);
+    
+    /** Update an existing db record */
+    bool Update(nDbRecord record);
+    
+    /** Delete an existing db record */
+    bool Delete(nDbRecord record);
+    
+    /** Get a specific db record */
+    T Get<T>(long id) where T : nDbRecord;
+    
+    /** Get a specific db record */
+    IEnumerable<T> All<T>(long offset, long limit) where T : nDbRecord;
+    
+    /** Delete all records of a given type */
+    void Clear<T>() where T : nDbRecord;
 	}
 }
 

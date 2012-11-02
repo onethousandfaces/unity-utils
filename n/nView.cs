@@ -19,13 +19,13 @@ namespace n
     public bool Success { get { return Error == null; } }
     
     /** Error message associated with this view, if any */
-    public nViewError Error { get; private set; }
+    public nViewError Error { get; set; }
     
 		/** The model returned by the controller */
-		public nModel Model { get; protected set; }
+		public nModel Model { get; set; }
 
 		/** Any navigation information from the controller */
-		public nAction Action { get; protected set; }
+		public nAction Action { get; set; }
     
     /** Perform the action associated with this view. */
     public void Activate () {

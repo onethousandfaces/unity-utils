@@ -9,4 +9,3 @@ namespace n.Platform
     T Get<T>();
 	}
 }
-
