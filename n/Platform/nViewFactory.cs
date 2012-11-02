@@ -5,17 +5,20 @@ namespace n.Platform
   /** Factory to create view instances for the platform implementation. */
 	public interface nViewFactory
 	{
-    /** View with type only */
-    nView View (nViewType type, object context);
+    /** Blank view that does nothing except return success */
+    nView View();
     
-		/** View with navigation target only */
-    nView View (nViewType type, Type target, object context);
+		/** View for navigating somewhere */
+    nView View(Type target, nContext context);
 
-    /** View with model only */
-    nView View (nViewType type, object model, object context);
-                
-    /** View with model and navigation target */
-    nView View (nViewType type, object model, Type target, object context);
+    /** View that returns data */
+    nView View(object model, nContext context);
+    
+    /** View that is just an error */
+    nView Failed(string message);
+    
+    /** View that is an error and exception */
+    nView Failed(string message, Exception e);
 	}
 }
 

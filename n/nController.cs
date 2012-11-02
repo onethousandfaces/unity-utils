@@ -8,7 +8,7 @@ namespace n
 	public abstract class nController
 	{
 		/** The context from the calling view */
-		private object _context;
+		private nContext _context;
 
 		/** Factory for creating views */
 		private nViewFactory _factory;
@@ -24,14 +24,14 @@ namespace n
 
 		/** Return a dummy view with no action */
 		protected nView View() {
-			var rtn = _factory.View (nViewType.NO_OP);
+			var rtn = _factory.View();
 			return rtn;
 		}
 
 		/** Return a view with only a model */
 		protected nView View (object model)
 		{
-			var rtn = _factory.View(nViewType.MODEL_ONLY, model, _context);
+			var rtn = _factory.View(model, _context);
 			return rtn;
 		}
 
@@ -39,20 +39,26 @@ namespace n
 		protected nView View (string target)
 		{
 			var t = _stateFactory.View(target);
-			var rtn = _factory.View(nViewType.ACTION_ONLY, t, _context);
+			var rtn = _factory.View(t, _context);
 			return rtn;
 		}
-
-		/** Return a model and have a navigation result */
-		protected nView View (object model, string target)
-		{
-			var t = _stateFactory.View(target);
-			var rtn = _factory.View(nViewType.MODEL_AND_ACTION, model, t, _context);
-			return rtn;
-		}
+    
+    /** Return an error message */
+    protected nView Failed (string message)
+    {
+      var rtn = _factory.Failed(message);
+      return rtn;
+    }
+    
+    /** Return an error message with exception */
+    protected nView Failed (string message, Exception error)
+    {
+      var rtn = _factory.Failed(message, error);
+      return rtn;
+    }
 
 		/** Set the context the controller will need to use to create views */
-		public void SetContext (object context)
+		public void SetContext (nContext context)
 		{
 			_context = context;
 		}

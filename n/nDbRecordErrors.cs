@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace n
 {
+  /** Set of errors for a database record */
 	public class nDbRecordErrors
 	{
 		/** Set of actual errors */
