@@ -57,7 +57,7 @@
 #endif
 
 #endregion
-namespace n.Infrastructure.TinyIoC
+namespace n.External.TinyIoC
 {
 	using System;
 	using System.Collections.Generic;

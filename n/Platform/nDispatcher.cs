@@ -1,6 +1,6 @@
 using System;
 
-namespace n.Infrastructure
+namespace n.Platform
 {
 	/** The domain specific implementation should use a View to navigate to a new activity */
 	public interface nDispatcher

@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using n.Platform;
 
-namespace n.Infrastructure
+namespace n.App
 {
 
 	/** The target application needs to implement and create an instance of this to use. */
@@ -12,12 +13,7 @@ namespace n.Infrastructure
 			_dispatcher = _resolver.Resolve<nDispatcher>();
 		}
 
-		/** 
-		 * Bind service details for the application.
-		 * <p>
-		 * At a minimum the function should bind classes that implement:
-		 * IStateFactory, IDispatcher
-		 */
+		/** Bind service details for the application. */
 		protected abstract void setup(nResolver resolver);
 
 		/** The resolver to use for everything */

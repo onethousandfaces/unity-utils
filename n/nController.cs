@@ -1,6 +1,8 @@
 using System;
+using n.Platform;
+using n.App;
 
-namespace n.Infrastructure
+namespace n
 {
 	/** Extend this class for application controllers */
 	public abstract class nController

@@ -1,7 +1,7 @@
 using System;
-using System.Data;
+using n.Platform;
 
-namespace n.Infrastructure
+namespace n
 {
 	public class nLog
 	{

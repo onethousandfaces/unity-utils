@@ -1,7 +1,7 @@
 using System;
-using n.Infrastructure.TinyIoC;
+using n.External.TinyIoC;
 
-namespace n.Infrastructure
+namespace n
 {
 	/** Wrapper around the IOC so we can swap the implementation out easily */
 	public class nResolver

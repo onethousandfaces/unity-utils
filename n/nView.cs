@@ -1,6 +1,6 @@
 using System;
 
-namespace n.Infrastructure
+namespace n
 {
 	/** Controller actions should always return a view object */
 	public abstract class nView

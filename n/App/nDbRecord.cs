@@ -1,9 +1,9 @@
 using System;
-using System.Data;
 using System.Collections.Generic;
 
-namespace n.Infrastructure
+namespace n.App
 {
+	/** Base type for persistable records */
 	public abstract class nDbRecord
 	{
 		/** Records should implement this to validate the record */

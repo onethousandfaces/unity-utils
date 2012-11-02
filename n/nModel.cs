@@ -1,6 +1,6 @@
 using System;
 
-namespace n.Infrastructure
+namespace n
 {
 	/** Base type for models with helper function */
 	public abstract class nModel {

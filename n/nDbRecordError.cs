@@ -1,8 +1,7 @@
 using System;
-using System.Data;
 using System.Collections.Generic;
 
-namespace n.Infrastructure
+namespace n
 {
 	public class nDbRecordError
 	{

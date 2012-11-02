@@ -1,16 +1,16 @@
 using System;
-using System.Data;
 using System.Collections.Generic;
 using System.Linq;
+using n.App;
 
-namespace n.Infrastructure
+namespace n.Platform
 {
 	/** 
 	 * This class should be implemented by a platform specific binding that
 	 * can perform the various required crud operations on records.
-     * <p>
-     * Do not extend this class to create a repository; inject it as a 
-     * dependency or use it directly instead of a custom repository.
+   * <p>
+   * Do not extend this class to create a repository; inject it as a 
+   * dependency or use it directly instead of a custom repository.
 	 */
 	public abstract class nDbRepo
 	{
@@ -19,7 +19,6 @@ namespace n.Infrastructure
 		public nDbRepo (nDb connectionFactory)
 		{
 			_db = connectionFactory;
-			Setup();
 		}
 
 		/** Save this record, performing an insert if required */

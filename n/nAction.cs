@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace n.Infrastructure
+namespace n
 {
 	/** Container to hold impl specific activity navigation data */
 	public class nAction

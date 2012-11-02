@@ -1,6 +1,6 @@
 using System;
 
-namespace n.Infrastructure
+namespace n.App
 {
 	/** Return a global instance of the application state */
 	public interface nStateFactory
