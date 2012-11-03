@@ -1,5 +1,6 @@
 using System;
 using n.External.TinyIoC;
+using System.Reflection;
 
 namespace n
 {
@@ -12,10 +13,17 @@ namespace n
 			return rtn;
 		}
 
-		/** Bind interface T to type K */
-		public void Bind<T, K>() where T : class where K : T {
-			var instance = Resolve<K>();
-			TinyIoCContainer.Current.Register<T>(instance);
+		/** 
+     * Bind interface T to type K 
+     * <p>
+     * This is complex because the crappy .Net 3.5 runtime in unity 
+     * is rubbish and doesn't support constraints properly.
+     */
+		public void Bind<T, K>() {
+      MethodInfo method = typeof(nResolver).GetMethod ("Resolve");
+      MethodInfo item = method.MakeGenericMethod (new Type[] { typeof(K) });
+      var instance = (K) item.Invoke (this, null);
+      TinyIoCContainer.Current.Register(typeof(T), instance);
 		}
 	}
 }

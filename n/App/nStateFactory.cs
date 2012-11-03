@@ -6,7 +6,7 @@ namespace n.App
 	public interface nStateFactory
 	{
 		/** Return the global application state */
-		object State { get; }
+		nModel State { get; }
 	}
 }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using n.Platform;
+using System.Reflection;
 
 namespace n.App
 {
@@ -19,10 +20,18 @@ namespace n.App
 		private nResolver _resolver = new nResolver();
 
 		/** Return a controller instance */
-		public T Get<T> (nContext context) where T : nController
-		{
-			var rtn = _resolver.Resolve<T>();
-			rtn.SetContext(context);
+		public T Get<T> (nContext context)
+    {
+      MethodInfo method = typeof(nResolver).GetMethod ("Resolve");
+      MethodInfo item = method.MakeGenericMethod (new Type[] { typeof(T) });
+      var rtn = (T) item.Invoke (_resolver, null);
+
+      /* Attach context to controllers */
+      method = typeof(T).GetMethod ("SetContext");
+      if (method != null) {
+        method.Invoke(rtn, new object[] { context });
+      }
+
 			return rtn;
 		}
 	}
