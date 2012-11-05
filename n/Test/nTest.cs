@@ -12,21 +12,14 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-
 using System;
-using System.Collections.Generic;
 
-namespace n
+namespace n.Test
 {
-  /** Record types */
-  public enum nDbRecordFieldType
+  /** Attribute to annotate tests with */
+  [System.AttributeUsage(System.AttributeTargets.Method)]
+  public class nTest : System.Attribute
   {
-    STRING,
-    INT,
-    LONG,
-    DOUBLE,
-    BOOL,
-    DATETIME,
-    POINTER
   }
 }
+

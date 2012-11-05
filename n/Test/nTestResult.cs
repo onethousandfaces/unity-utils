@@ -12,21 +12,35 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-
 using System;
-using System.Collections.Generic;
+using System.Reflection;
+using System.Text;
 
-namespace n
+namespace n.Test
 {
-  /** Record types */
-  public enum nDbRecordFieldType
+  /** Results from a single test */
+  public class nTestResult
   {
-    STRING,
-    INT,
-    LONG,
-    DOUBLE,
-    BOOL,
-    DATETIME,
-    POINTER
+    public MethodInfo Target { get; set; }
+    
+    public bool Success { get; set; }
+    
+    public Exception Error { get; set; }
+    
+    public StringBuilder Log { get; set; }
+    
+    public string Name {
+      get {
+        return Target.Name;
+      }
+    }
+    
+    public nTestResult(MethodInfo method) {
+      Target = method;
+      Success = true;
+      Log = new StringBuilder();
+      Error = null;
+    }
   }
 }
+

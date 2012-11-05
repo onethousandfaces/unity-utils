@@ -12,21 +12,26 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-
 using System;
-using System.Collections.Generic;
 
-namespace n
+namespace n.Test
 {
-  /** Record types */
-  public enum nDbRecordFieldType
+  /** Base class for all tests */
+  public class nTestBase
   {
-    STRING,
-    INT,
-    LONG,
-    DOUBLE,
-    BOOL,
-    DATETIME,
-    POINTER
+    /** The result set for this test */
+    public nTestResult Results { get; set; }
+    
+    /** Log a debug message */
+    public void Debug(string message) {
+      Results.Log.AppendLine(message);
+    }
+    
+    /** Log a message with params */
+    public void Debug(string fmt, params object[] values) {
+      var msg = String.Format(fmt, values);
+      Debug(msg);
+    }
   }
 }
+
